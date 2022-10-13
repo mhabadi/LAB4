@@ -11,7 +11,4 @@ for router in hosts['hosts']:
                            device_type=router['type'])
     output=net_connect.send_command("show ip route",use_textfsm=True)
     for route in output:
-        print(f'network:{route["network"]}    ',end='')
-        print(f'protocol:{route["protocol"]}    ',end='')
-        print(f'distance:{route["distance"]}     ',end='')
-        print(f'metric:{route["metric"]}       ')
+        print('network: %15s   protocol: %1s   distance: %3s   metric:%1s' %[route["network"],route["protocol"],route["distance"],route["metric"]])
